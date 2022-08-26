@@ -94,29 +94,6 @@ State<size>* BFS(State<size>& initial, unsigned long long& examined, unsigned lo
     return nullptr;
 }
 
-/*
-State<14> startValue()
-{
-    return 
-    { 
-        {BLUE, GREEN, CYAN, CYAN}, 
-        {PURPLE, PINK, EMERALD, GREY}, 
-        {ORANGE, PURPLE, RED, BROWN}, 
-        {ORANGE, PINK, RED, ORANGE},
-        {GREEN, RED, YELLOW, BLUE},
-        {YELLOW, GREEN, BROWN, GREEN}, 
-        {BROWN, PURPLE, RED, LIME}, 
-        {LIME, PURPLE, PINK, LIME}, 
-        {EMERALD, GREY, CYAN, BLUE},
-        {BROWN, YELLOW, GREY, EMERALD},
-        {GREY, YELLOW, LIME, BLUE},
-        {EMERALD, CYAN, PINK, ORANGE}, 
-        {NO_COLOR, NO_COLOR, NO_COLOR, NO_COLOR}, 
-        {NO_COLOR, NO_COLOR, NO_COLOR, NO_COLOR}
-    };
-}
-*/
-
 std::string getSystemTimestamp()
 {
     static const char* DAY[] = {
