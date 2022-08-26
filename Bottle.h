@@ -9,11 +9,14 @@
 #define MSB_MASK    static_cast<color_t>(0b11110000)
 
 #if defined(__GNUC__)
-#define PACK( __Declaration__ ) __Declaration__ __attribute__((__packed__))
+#   define PUSH_PACK /* */
+#   define POP_PACK  __attribute__((packed))
 #elif defined(_MSC_VER)
-#define PACK( __Declaration__ ) __pragma(pack(push, 1)) __Declaration__ __pragma(pack(pop))
+#   define PUSH_PACK __pragma(pack(push, 1))
+#   define POP_PACK  __pragma(pack(pop))
 #else
-#define PACK( __Declaration__ ) __Declaration__
+#   define PUSH_PACK /* */
+#   define POP_PACK  /* */
 #endif
 
 
@@ -62,7 +65,7 @@
  *          returns contents[i]
  */
 
-__pragma(pack(push, 1))
+PUSH_PACK
 
 class Bottle
 {
@@ -97,6 +100,5 @@ public:
     bool operator == (const Bottle&) const;
 
     Bottle& operator = (const Bottle&);
-};
-
-__pragma(pack(pop))
+} 
+POP_PACK;
