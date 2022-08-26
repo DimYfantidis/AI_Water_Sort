@@ -71,7 +71,7 @@ typedef long long hash_t;
 typedef char      bsize_t;
 
 
-__pragma(pack(push, 1))
+PUSH_PACK
 
 template <size_t size>
 class State
@@ -131,9 +131,8 @@ public:
     bool operator == (const State<size>& other) const;
 
     bool operator != (const State<size>& other) const;
-};
-
-__pragma(pack(pop))
+} 
+POP_PACK;
 
 
 template <size_t size>
