@@ -100,5 +100,5 @@ public:
     bool operator == (const Bottle&) const;
 
     Bottle& operator = (const Bottle&);
-} 
+}
 POP_PACK;
