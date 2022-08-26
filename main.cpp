@@ -11,7 +11,7 @@
 #include "State.h"
 
 // Number of Bottles.
-#define BOTTLES_N       static_cast<size_t>(11)
+#define BOTTLES_N       static_cast<size_t>(10)
 
 // Record current time.
 #define READ_TIME()     std::chrono::system_clock::now()
@@ -94,6 +94,29 @@ State<size>* BFS(State<size>& initial, unsigned long long& examined, unsigned lo
     return nullptr;
 }
 
+/*
+State<14> startValue()
+{
+    return 
+    { 
+        {BLUE, GREEN, CYAN, CYAN}, 
+        {PURPLE, PINK, EMERALD, GREY}, 
+        {ORANGE, PURPLE, RED, BROWN}, 
+        {ORANGE, PINK, RED, ORANGE},
+        {GREEN, RED, YELLOW, BLUE},
+        {YELLOW, GREEN, BROWN, GREEN}, 
+        {BROWN, PURPLE, RED, LIME}, 
+        {LIME, PURPLE, PINK, LIME}, 
+        {EMERALD, GREY, CYAN, BLUE},
+        {BROWN, YELLOW, GREY, EMERALD},
+        {GREY, YELLOW, LIME, BLUE},
+        {EMERALD, CYAN, PINK, ORANGE}, 
+        {NO_COLOR, NO_COLOR, NO_COLOR, NO_COLOR}, 
+        {NO_COLOR, NO_COLOR, NO_COLOR, NO_COLOR}
+    };
+}
+*/
+
 std::string getSystemTimestamp()
 {
     static const char* DAY[] = {
@@ -136,7 +159,7 @@ int main()
     bool s_finished = false;
 
 
-    // Program descripton.
+    // Program description.
     std::cout << getSystemTimestamp() << "\n\n";
     std::cout << "> Implementation of Water Sort game AI, by Dimitris Yfantidis." << '\n';
     std::cout << "> Currently Running a game of " << BOTTLES_N << " bottles." << '\n';
@@ -172,7 +195,6 @@ int main()
 #else
     std::cout << "Calculating solution ..." << std::endl;
 #endif
-
 
     // Initialization of state's bottles with N - 2 random colors (4mL each), in a random sequence.
     start.init();
