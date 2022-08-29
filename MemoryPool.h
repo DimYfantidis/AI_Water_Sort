@@ -2,7 +2,7 @@
 
 #include <queue>
 
-#define GIGABYTE	1073741824
+#define GIGABYTE    1073741824
 #define GIGABYTE_2  2147483648
 #define ALLOCATE    GIGABYTE
 
