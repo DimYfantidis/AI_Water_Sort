@@ -12,6 +12,7 @@
 #include <array>
 
 #include "Bottle.h"
+#include "MemoryPool.h"
 #include "colors.h"
 
 #define ACTION_NAME_SIZE 2
@@ -24,13 +25,8 @@
  *      variables and methods to be used during the execution of
  *      AI algorithms.
  *
- *      The class initially used std::vector<Bottle> (24 bytes)
- *      for storing the bottles in each snapshot of the puzzle.
- *      For optimal memory usage, it has now been changed to a
- *      pointer to Bottle data type and a char for storing its
- *      size, given that number of bottles doesn't exceed 19.
- *      (total: 9 bytes)
- *      (see also: bsize_t)
+ *      The Bottles are stored in a static C-style array, with its
+ *      length defined by the template argument.
  *
  *
  *  Class' important methods:
@@ -131,8 +127,19 @@ public:
     bool operator == (const State<size>& other) const;
 
     bool operator != (const State<size>& other) const;
-} 
+
+    void* operator new(size_t bytes);
+
+    void operator delete(void *memory);
+}
 POP_PACK;
+
+
+MemoryPool& getPool(size_t bytes_per_unit)
+{
+    static MemoryPool pool(bytes_per_unit);
+    return pool;
+}
 
 
 template <size_t size>
@@ -347,7 +354,7 @@ void State<size>::expand(std::vector<State<size>*>& children)
 
             if (bottles[i].shouldPourTo(bottles[j]))
             {
-                child = new State(*this);
+                child = new State<size>(*this);
 
                 pour(child, i, j);
 
@@ -418,4 +425,16 @@ bool State<size>::operator != (const State<size>& other) const
         }
     }
     return false;
+}
+
+template <size_t size>
+void* State<size>::operator new(size_t bytes)
+{
+    return reinterpret_cast<void*>(getPool(bytes).allocate());
+}
+
+template <size_t size>
+void State<size>::operator delete(void* memory)
+{
+    getPool(sizeof(State<size>)).deallocate(reinterpret_cast<State<size> *>(memory));
 }
