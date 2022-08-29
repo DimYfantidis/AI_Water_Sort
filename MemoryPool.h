@@ -14,10 +14,10 @@ private:
 
     size_t m_totalAllocatedUnits;
 
-    const size_t m_unitByteSize;
-
     size_t m_totalAvailableBytes;
 
+    const size_t m_unitByteSize;
+    
     std::queue<void *> m_gapsInMemBlock;
 
     MemoryPool *m_nextMemoryPool;
