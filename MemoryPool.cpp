@@ -5,18 +5,35 @@
 #include <exception>
 
 
-MemoryPool::MemoryPool(const size_t bytes) : m_unitByteSize(bytes)
-{
-    m_totalAllocatedUnits   =   0;
-    m_totalAvailableBytes   =   ALLOCATE;
-    m_pAllocatedMemBlock    =   malloc(m_totalAvailableBytes);
-    m_nextMemoryPool        =   nullptr;
+// --------------------------- PRIVATE ---------------------------
 
-    if (m_pAllocatedMemBlock == nullptr)
+void MemoryPool::init(MemoryPool::pocket &p) const
+{
+    p.m_totalAllocatedUnits = 0;
+    p.m_totalAvailableBytes = m_allocationBytes;
+    p.m_pAllocatedMemBlock  = malloc(m_allocationBytes);
+
+    if (p.m_pAllocatedMemBlock == nullptr)
     {
-        std::cerr << "Could not allocate " << ALLOCATE << " bytes of memory.\n";
+        std::cerr << "Could not allocate " << m_allocationBytes << " bytes of memory.\n";
         throw std::bad_alloc();
     }
+}
+
+// --------------------------- PUBLIC ---------------------------
+
+MemoryPool::MemoryPool(size_t inst_bytes, size_t alloc_bytes)
+    :   m_unitByteSize(inst_bytes),
+        m_allocationBytes(alloc_bytes)
+{
+    m_allocatedPockets.reserve(50);
+    m_allocatedPockets.push_back({});
+
+    init(m_allocatedPockets[0]);
+
+    m_pocketIndex = 0;
+
+    m_currentPocket = &m_allocatedPockets[0];
 }
 
 MemoryPool::~MemoryPool()
@@ -24,69 +41,78 @@ MemoryPool::~MemoryPool()
 #if MEMORY_LOGGING_ENABLED
     memoryAllocationLogger() << "Cleaning " << reinterpret_cast<void *>(this) << '\n';
 #endif
-
-    if (m_nextMemoryPool != nullptr)
-    {
-        delete m_nextMemoryPool;
-        m_nextMemoryPool = nullptr;
+    for (pocket &p : m_allocatedPockets) {
+        free(p.m_pAllocatedMemBlock);
     }
-    free(m_pAllocatedMemBlock);
 }
 
 void* MemoryPool::allocate()
 {
-    if (m_totalAvailableBytes < m_unitByteSize)
+    if (m_currentPocket->m_totalAvailableBytes < m_unitByteSize)
     {
-        if (m_nextMemoryPool == nullptr) {
-            m_nextMemoryPool = ::new MemoryPool(m_unitByteSize);
-        }
-        return m_nextMemoryPool->allocate();
+        m_allocatedPockets.push_back({});
+        init(m_allocatedPockets[++m_pocketIndex]);
+        m_currentPocket = &m_allocatedPockets[m_pocketIndex];
     }
 
 #if MEMORY_LOGGING_ENABLED
-    memoryAllocationLogger() << "\nPool [-" << reinterpret_cast<void *>(this) << "-] has " << m_totalAvailableBytes << " space left in bytes" << std::endl;
-
-    memoryAllocationLogger() << "\t> ALLOCATING " << m_unitByteSize << " bytes: ";
+    memoryAllocationLogger() << "\nPocket [-" << reinterpret_cast<void *>(m_currentPocket) << "-] (" << m_pocketIndex
+                             << ") has " << m_currentPocket->m_totalAvailableBytes << " space left in bytes\n"
+                             << "\t> ALLOCATING " << m_unitByteSize << " bytes: ";
 #endif
 
-    if (m_gapsInMemBlock.empty())
+    if (m_pocketsWithGaps.empty())
     {
-        static char *temp = reinterpret_cast<char *>(m_pAllocatedMemBlock);
-
+        char *temp = reinterpret_cast<char *>(m_currentPocket->m_pAllocatedMemBlock);
 #if MEMORY_LOGGING_ENABLED
-    memoryAllocationLogger() << "No gaps found to fill, continuing expansion\n";
+        memoryAllocationLogger() << "No gaps found to fill, continuing expansion\n";
 #endif
-        m_totalAvailableBytes -= m_unitByteSize;
+        m_currentPocket->m_totalAvailableBytes -= m_unitByteSize;
 
-        return reinterpret_cast<void *>(temp + m_unitByteSize * (m_totalAllocatedUnits++));
+        return reinterpret_cast<void *>(temp + m_unitByteSize * (m_currentPocket->m_totalAllocatedUnits++));
     }
+    size_t at = m_pocketsWithGaps.begin()->first;
+    void *freeSpace = m_allocatedPockets[at].m_gapsInPocket.front();
 
-    void* freeSpace = m_gapsInMemBlock.front();
+    m_allocatedPockets[at].m_gapsInPocket.pop();
 
 #if MEMORY_LOGGING_ENABLED
-    memoryAllocationLogger() << "Gap at  (" << freeSpace << "). Filling the gap\n";
+    memoryAllocationLogger() << "Gap at  (" << freeSpace << "), pocket: "
+                             << reinterpret_cast<void *>(&m_allocatedPockets[at]) << ". Filling the gap ("
+                             << m_allocatedPockets[at].m_gapsInPocket.size() << " left)\n";
 #endif
-    m_gapsInMemBlock.pop();
+    m_pocketsWithGaps[at] -= 1;
+    m_allocatedPockets[at].m_totalAvailableBytes -= m_unitByteSize;
 
-    m_totalAvailableBytes -= m_unitByteSize;
+    if (m_pocketsWithGaps[at] == 0) {
+        m_pocketsWithGaps.erase(at);
+    }
 
     return freeSpace;
 }
 
 void MemoryPool::deallocate(void* mem)
 {
-    if (m_pAllocatedMemBlock < mem && mem < reinterpret_cast<void *>(reinterpret_cast<char *>(m_pAllocatedMemBlock) + ALLOCATE))
+    bool b1;
+    bool b2;
+
+    for (auto i = m_pocketIndex; i >= 0; --i)
     {
-        m_totalAvailableBytes += m_unitByteSize;
+        b1 = m_allocatedPockets[i].m_pAllocatedMemBlock <= mem;
+        b2 = mem < reinterpret_cast<void *>(reinterpret_cast<char *>(m_allocatedPockets[i].m_pAllocatedMemBlock) + m_allocationBytes);
+
+        if (b1 && b2)
+        {
+            m_allocatedPockets[i].m_totalAvailableBytes += m_unitByteSize;
 #if MEMORY_LOGGING_ENABLED
-        memoryAllocationLogger() << "\t> RELEASING  " << m_unitByteSize << " bytes: Pushing (" << mem << ") to stack\n";
+            memoryAllocationLogger() << "\t> RELEASING  " << m_unitByteSize << " bytes: Pushing (" << mem
+                                     << ") to stack. Pocket: " << reinterpret_cast<void *>(&m_allocatedPockets[i])
+                                     << " (" << m_allocatedPockets[i].m_gapsInPocket.size() + 1 << " current)\n";
 #endif
-        m_gapsInMemBlock.push(mem);
-    }
-    else
-    {
-        if (m_nextMemoryPool != nullptr) {
-            m_nextMemoryPool->deallocate(mem);
+            m_pocketsWithGaps[static_cast<size_t>(i)] += 1;
+            m_allocatedPockets[i].m_gapsInPocket.push(mem);
+            return;
         }
     }
+    throw std::exception();
 }
