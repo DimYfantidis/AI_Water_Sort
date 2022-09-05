@@ -135,13 +135,6 @@ public:
 POP_PACK;
 
 
-MemoryPool& getPool(size_t bytes_per_unit)
-{
-    static MemoryPool pool(bytes_per_unit);
-    return pool;
-}
-
-
 template <size_t size>
 State<size>::State() 
 {
@@ -195,7 +188,7 @@ void State<size>::init()
     std::vector<color_t> colors(size - 2);
     std::vector<int> ml_left(colors.size(), 4);
 
-    static std::mt19937 generator(static_cast<unsigned int>(time(nullptr) + 7));
+    static std::mt19937 generator(static_cast<unsigned int>(/*time(nullptr)+*/ 10));
 
     std::uniform_int_distribution<size_t> distribution(1, TOTAL_COLORS);
     std::uniform_int_distribution<size_t> color_dist(0, colors.size() - 1);
@@ -425,6 +418,12 @@ bool State<size>::operator != (const State<size>& other) const
         }
     }
     return false;
+}
+
+MemoryPool& getPool(size_t bytes)
+{
+    static MemoryPool pool(bytes, 1073741824);  // One gigabyte per pocket
+    return pool;
 }
 
 template <size_t size>
