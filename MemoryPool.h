@@ -1,31 +1,42 @@
 #pragma once
 
+#include <set>
 #include <queue>
-
-#define GIGABYTE    1073741824
-#define GIGABYTE_2  2147483648
-#define ALLOCATE    GIGABYTE
-
+#include <utility>
+#include <unordered_map>
 
 class MemoryPool
 {
 private:
-    void* m_pAllocatedMemBlock;
-
-    size_t m_totalAllocatedUnits;
-
-    size_t m_totalAvailableBytes;
-
     const size_t m_unitByteSize;
-    
-    std::queue<void *> m_gapsInMemBlock;
+    const size_t m_allocationBytes;
 
-    MemoryPool *m_nextMemoryPool;
+    struct pocket
+    {
+        void* m_pAllocatedMemBlock = nullptr;
+
+        size_t m_totalAllocatedUnits = 0;
+        size_t m_totalAvailableBytes = 0;
+
+        std::queue<void *> m_gapsInPocket;
+    };
+
+    pocket *m_currentPocket;
+
+    int m_pocketIndex;
+
+    std::vector<pocket> m_allocatedPockets;
+
+    std::unordered_map<size_t, size_t> m_pocketsWithGaps;
+
+    void init(pocket &p) const;
 
 public:
     MemoryPool() = delete;
 
-    explicit MemoryPool(size_t bytes);
+    MemoryPool(const MemoryPool &) = delete;
+
+    MemoryPool(size_t inst_bytes, size_t alloc_bytes);
 
     ~MemoryPool();
 
