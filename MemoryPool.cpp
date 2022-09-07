@@ -20,6 +20,13 @@ void MemoryPool::init(MemoryPool::pocket &p) const
     }
 }
 
+std::ofstream& MemoryPool::memoryAllocationLogger()
+{
+    static std::ofstream logger("allocations.log", std::ios::out);
+    return logger;
+}
+
+
 // --------------------------- PUBLIC ---------------------------
 
 MemoryPool::MemoryPool(size_t inst_bytes, size_t alloc_bytes)
