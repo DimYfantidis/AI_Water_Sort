@@ -30,6 +30,8 @@ private:
     std::unordered_map<size_t, size_t> m_pocketsWithGaps;
 
     void init(pocket &p) const;
+    
+    static std::ofstream& memoryAllocationLogger();
 
 public:
     MemoryPool() = delete;
