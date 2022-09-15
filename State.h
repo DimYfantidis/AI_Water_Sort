@@ -241,7 +241,7 @@ hash_t State<size>::hashValue() const
     size_t i, j;
     hash_t hash;
 
-    hash = 1125899906842597LL;
+    hash = 1125899906842597LLU;
 
     for (i = 0; i < size; ++i)
     {
