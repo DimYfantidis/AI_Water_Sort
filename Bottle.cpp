@@ -127,13 +127,6 @@ color_t Bottle::top(int& i) const
 
 color_t Bottle::pour(Bottle& to)
 {
-    if (this == &to) {
-        std::cerr << "Bottle cannot pour to itself" << std::endl;
-        return NO_COLOR;
-    }
-    if (this->isEmpty() || !to.hasFreeSpace()) {
-        return NO_COLOR;
-    }
     int i;
     int pos1;
     int pos2;

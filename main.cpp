@@ -2,16 +2,18 @@
 #include <fstream>
 #include <queue>
 #include <unordered_set>
+#include <unordered_map>
 #include <chrono>
 #include <ctime>
 #include <iomanip>
 #include <thread>
+#include <cstdint>
 
 #include "output_util.h"
 #include "State.h"
 
 // Number of Bottles.
-#define BOTTLES_N       static_cast<size_t>(10)
+#define BOTTLES_N       static_cast<size_t>(11)
 
 // Record current time.
 #define READ_TIME()     std::chrono::system_clock::now()
@@ -22,7 +24,7 @@
 
 // Implementation of Breadth First Search AI algorithm
 template <size_t size>
-State<size>* BFS(State<size>& initial, unsigned long long& examined, unsigned long long& memory)
+State<size>* BFS(State<size>& initial, uint64_t& examined, uint64_t& memory)
 {
     std::queue<State<size>*> frontier;
 
@@ -42,7 +44,6 @@ State<size>* BFS(State<size>& initial, unsigned long long& examined, unsigned lo
         }
     };
 
-
     frontier.push(new State<size>(initial));
     examined = 0;
     memory = 1;
@@ -57,7 +58,7 @@ State<size>* BFS(State<size>& initial, unsigned long long& examined, unsigned lo
 
         frontier.pop();
 
-        if (closed.count(s->hashValue()) == 0)
+        if (closed.find(s->hashValue()) == closed.end())
         {
             examined += 1;
 
@@ -78,7 +79,7 @@ State<size>* BFS(State<size>& initial, unsigned long long& examined, unsigned lo
 
             for (State<size>* child : children)
             {
-                if (closed.count(child->hashValue()) == 0)
+                if (closed.find(child->hashValue()) == closed.end())
                     frontier.push(child);
                 else
                     delete child;
@@ -94,9 +95,32 @@ State<size>* BFS(State<size>& initial, unsigned long long& examined, unsigned lo
     return nullptr;
 }
 
+/*
+State<14> startValue()
+{
+    return 
+    { 
+        {BLUE, GREEN, CYAN, CYAN}, 
+        {PURPLE, PINK, EMERALD, GREY}, 
+        {ORANGE, PURPLE, RED, BROWN}, 
+        {ORANGE, PINK, RED, ORANGE},
+        {GREEN, RED, YELLOW, BLUE},
+        {YELLOW, GREEN, BROWN, GREEN}, 
+        {BROWN, PURPLE, RED, LIME}, 
+        {LIME, PURPLE, PINK, LIME}, 
+        {EMERALD, GREY, CYAN, BLUE},
+        {BROWN, YELLOW, GREY, EMERALD},
+        {GREY, YELLOW, LIME, BLUE},
+        {EMERALD, CYAN, PINK, ORANGE}, 
+        {NO_COLOR, NO_COLOR, NO_COLOR, NO_COLOR}, 
+        {NO_COLOR, NO_COLOR, NO_COLOR, NO_COLOR}
+    };
+}
+*/
+
 std::string getSystemTimestamp()
 {
-    static const char* DAY[] = {
+    constexpr char DAY[][4] = {
         "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"
     };
 
@@ -120,9 +144,9 @@ std::string getSystemTimestamp()
 
 int main()
 {
-    unsigned long long memory = 0;      // Number of total nodes stored (frontier + closed set).
-    unsigned long long examined = 0;    // Number of nodes examined by the BFS algorithm.
-    unsigned long long duration;        // Duration of BFS runtime in milliseconds.
+    uint64_t memory = 0;      // Number of total nodes stored (frontier + closed set).
+    uint64_t examined = 0;    // Number of nodes examined by the BFS algorithm.
+    uint64_t duration;        // Duration of BFS runtime in milliseconds.
 
     std::ofstream ofs("results.txt", std::ios::out);        // File for exporting metrics and solution's path.
     std::ostream& out = (ofs.is_open() ? ofs : std::cout);  // Unless opened successfully, logging is continued at the command line.
@@ -136,7 +160,7 @@ int main()
     bool s_finished = false;
 
 
-    // Program description.
+    // Program descripton.
     std::cout << getSystemTimestamp() << "\n\n";
     std::cout << "> Implementation of Water Sort game AI, by Dimitris Yfantidis." << '\n';
     std::cout << "> Currently Running a game of " << BOTTLES_N << " bottles." << '\n';
@@ -152,7 +176,7 @@ int main()
 
             std::string gap(13, ' ');
             
-            std::chrono::milliseconds ms(40);
+            std::chrono::milliseconds ms(20);
 
 
             cmd::removeCursor();
@@ -173,6 +197,7 @@ int main()
     std::cout << "Calculating solution ..." << std::endl;
 #endif
 
+
     // Initialization of state's bottles with N - 2 random colors (4mL each), in a random sequence.
     start.init();
 
@@ -184,11 +209,6 @@ int main()
 
     duration = MS_DIFF(t0, t1);
 
-    s_finished = true;
-
-#if defined(_MSC_VER)
-    loadingAnimation.join();
-#endif
 
     if (solution != nullptr)
     {
@@ -225,6 +245,12 @@ int main()
     if (ofs.is_open()) {
         ofs.close();
     }
+
+    s_finished = true;
+
+#if defined(_MSC_VER)
+    loadingAnimation.join();
+#endif
 
     return EXIT_SUCCESS;
 }

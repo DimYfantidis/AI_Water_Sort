@@ -20,10 +20,10 @@ private:
         size_t m_totalAllocatedUnits = 0;
         size_t m_totalAvailableBytes = 0;
 
-        std::queue<void *> m_gapsInPocket;
+        std::queue<void*> m_gapsInPocket;
     };
 
-    pocket *m_currentPocket;
+    pocket* m_currentPocket;
 
     int m_pocketIndex;
 
@@ -31,14 +31,14 @@ private:
 
     std::unordered_map<size_t, size_t> m_pocketsWithGaps;
 
-    void init(pocket &p) const;
-    
+    void init(pocket& p) const;
+
     static std::ofstream& memoryAllocationLogger();
 
 public:
     MemoryPool() = delete;
 
-    MemoryPool(const MemoryPool &) = delete;
+    MemoryPool(const MemoryPool&) = delete;
 
     MemoryPool(size_t inst_bytes, size_t alloc_bytes);
 

@@ -8,8 +8,8 @@
 #include <ctime>
 #include <iomanip>
 #include <cstring>
+#include <cstdint>
 #include <initializer_list>
-#include <array>
 
 #include "Bottle.h"
 #include "MemoryPool.h"
@@ -63,9 +63,8 @@
  */
 
 
-typedef long long hash_t;
-typedef char      bsize_t;
-
+typedef size_t  hash_t;
+typedef int8_t  bsize_t;
 
 PUSH_PACK
 
@@ -76,6 +75,7 @@ class State
     static_assert(size < 18, "Number of bottles must be less than 18.");
 
 private:
+
     bsize_t actionName[ACTION_NAME_SIZE];
 
     State<size>* prev;
@@ -130,13 +130,15 @@ public:
 
     void* operator new(size_t bytes);
 
-    void operator delete(void *memory);
+    void operator delete(void* memory);
+
+    friend std::hash<State<size>>;
 }
 POP_PACK;
 
 
 template <size_t size>
-State<size>::State() 
+State<size>::State()
 {
     prev = nullptr;
     actionName[0] = '\0';
@@ -188,7 +190,7 @@ void State<size>::init()
     std::vector<color_t> colors(size - 2);
     std::vector<int> ml_left(colors.size(), 4);
 
-    static std::mt19937 generator(static_cast<unsigned int>(/*time(nullptr)+*/ 10));
+    static std::mt19937 generator(static_cast<unsigned int>(/*time(nullptr)*/ +10));
 
     std::uniform_int_distribution<size_t> distribution(1, TOTAL_COLORS);
     std::uniform_int_distribution<size_t> color_dist(0, colors.size() - 1);
@@ -203,7 +205,7 @@ void State<size>::init()
         c = static_cast<color_t>(distribution(generator));
 
         for (j = 0; j < i; ++j) {
-            if (c == colors[j]) 
+            if (c == colors[j])
             {
                 c = static_cast<color_t>(distribution(generator));
                 j = 0;
@@ -212,9 +214,9 @@ void State<size>::init()
         colors[i] = c;
     }
 
-    for (k = 0; k < size - 2; ++k) 
+    for (k = 0; k < size - 2; ++k)
     {
-        for (i = 0; i < NUM_OF_COLORS; ++i) 
+        for (i = 0; i < NUM_OF_COLORS; ++i)
         {
             do {
                 j = color_dist(generator);
@@ -293,9 +295,9 @@ std::string State<size>::toString() const
 
     oss << '\n';
 
-    for (i = 0; i < 4; ++i) 
+    for (i = 0; i < 4; ++i)
     {
-        for (size_t k = 0; k < size; ++k) 
+        for (size_t k = 0; k < size; ++k)
         {
             c = bottles[k].getColor(i);
             oss << "|" << (c != NO_COLOR ? COLOR_STR[c] : "       ") << "|   ";

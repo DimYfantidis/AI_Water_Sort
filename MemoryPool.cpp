@@ -3,15 +3,15 @@
 #include <iostream>
 #include <exception>
 
-#define MEMORY_LOGGING_ENABLED true
+#define MEMORY_LOGGING_ENABLED false
 
 #if MEMORY_LOGGING_ENABLED
-    char LOG_BUFFER[BUFSIZ];
+    static char LOG_BUFFER[BUFSIZ];
 
-    // Log raw string.
-    #define LOG_R(message)     memoryAllocationLogger() << (message);
-    // Log formatted string.
-    #define LOG_F(format, ...) std::snprintf(LOG_BUFFER, BUFSIZ, format, __VA_ARGS__); memoryAllocationLogger() << LOG_BUFFER;
+    // Log Raw string.
+    #define LOG_R(message)      memoryAllocationLogger() << (message);
+    // Log Formatted string.
+    #define LOG_F(format, ...)  std::snprintf(LOG_BUFFER, BUFSIZ, format, __VA_ARGS__); memoryAllocationLogger() << LOG_BUFFER;
 #else
     #define LOG_R(message)      /* do nothing */
     #define LOG_F(format, ...)  /* do nothing */
@@ -74,10 +74,10 @@ void* MemoryPool::allocate()
         m_currentPocket = &m_allocatedPockets[m_pocketIndex];
     }
 
-    LOG_F("\nPocket [-0x%p-] (%d) has %zu space left in bytes\n",
-          m_currentPocket,
-          m_pocketIndex,
-          m_currentPocket->m_totalAvailableBytes
+    LOG_F("\nPocket [-0x%p-] (%d) has %zu space left in bytes\n", 
+        m_currentPocket, 
+        m_pocketIndex, 
+        m_currentPocket->m_totalAvailableBytes
     )
     LOG_F("\t > ALLOCATING %zu bytes: ", m_unitByteSize)
 
@@ -97,9 +97,9 @@ void* MemoryPool::allocate()
     m_allocatedPockets[at].m_gapsInPocket.pop();
 
     LOG_F("Gap at  (0x%p), pocket: 0x%p. Filling the gap (%zu) left\n",
-          freeSpace,
-          &m_allocatedPockets[at],
-          m_allocatedPockets[at].m_gapsInPocket.size()
+        freeSpace,
+        &m_allocatedPockets[at],
+        m_allocatedPockets[at].m_gapsInPocket.size()
     )
     m_pocketsWithGaps[at] -= 1;
     m_allocatedPockets[at].m_totalAvailableBytes -= m_unitByteSize;
@@ -126,9 +126,9 @@ void MemoryPool::deallocate(void* mem)
             m_allocatedPockets[i].m_totalAvailableBytes += m_unitByteSize;
 
             LOG_F("\t > RELEASING  %zu bytes: Pushing (0x%p) to stack. Pocket: 0x%p (%zu current)\n",
-                  m_unitByteSize,
-                  mem,
-                  &m_allocatedPockets[i],
+                m_unitByteSize,
+                mem,
+                &m_allocatedPockets[i],
                 m_allocatedPockets[i].m_gapsInPocket.size() + 1
             )
 

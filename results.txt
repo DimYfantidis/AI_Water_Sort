@@ -1,257 +1,117 @@
-METRICS FOR 11 BOTTLES:
--> Depth:          	24
--> Total Nodes:    	23600413
--> Examined Nodes: 	8452462
--> Elapsed Time:   	00h : 03m : 52s : 000ms
+METRICS FOR 6 BOTTLES:
+-> Depth:          	10
+-> Total Nodes:    	6677
+-> Examined Nodes: 	3035
+-> Elapsed Time:   	00h : 00m : 00s : 201ms
 
 
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|RED    |   |EMERALD|   |RED    |   |GREY   |   |YELLOW |   |ORANGE |   |PURPLE |   |PINK   |   |ORANGE |   |       |   |       |   
-|CYAN   |   |YELLOW |   |PURPLE |   |GREY   |   |EMERALD|   |EMERALD|   |WHITE  |   |PINK   |   |ORANGE |   |       |   |       |   
-|GREY   |   |WHITE  |   |RED    |   |YELLOW |   |RED    |   |EMERALD|   |CYAN   |   |WHITE  |   |CYAN   |   |       |   |       |   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |       |   |       |   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+   [1]         [2]         [3]         [4]         [5]         [6]      
+|GREY   |   |BLACK  |   |ORANGE |   |PURPLE |   |       |   |       |   
+|BLACK  |   |BLACK  |   |GREY   |   |PURPLE |   |       |   |       |   
+|PURPLE |   |GREY   |   |ORANGE |   |PURPLE |   |       |   |       |   
+|GREY   |   |BLACK  |   |ORANGE |   |ORANGE |   |       |   |       |   
+---------   ---------   ---------   ---------   ---------   ---------   
 
  1. No action committed (initial state)
 
 
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|       |   |EMERALD|   |RED    |   |GREY   |   |YELLOW |   |ORANGE |   |PURPLE |   |PINK   |   |ORANGE |   |       |   |       |   
-|CYAN   |   |YELLOW |   |PURPLE |   |GREY   |   |EMERALD|   |EMERALD|   |WHITE  |   |PINK   |   |ORANGE |   |       |   |       |   
-|GREY   |   |WHITE  |   |RED    |   |YELLOW |   |RED    |   |EMERALD|   |CYAN   |   |WHITE  |   |CYAN   |   |       |   |       |   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |       |   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+   [1]         [2]         [3]         [4]         [5]         [6]      
+|GREY   |   |       |   |ORANGE |   |PURPLE |   |       |   |       |   
+|BLACK  |   |       |   |GREY   |   |PURPLE |   |       |   |       |   
+|PURPLE |   |GREY   |   |ORANGE |   |PURPLE |   |BLACK  |   |       |   
+|GREY   |   |BLACK  |   |ORANGE |   |ORANGE |   |BLACK  |   |       |   
+---------   ---------   ---------   ---------   ---------   ---------   
 
- 2. Poured  1 mL of RED     from bottle  1 to bottle 10
+ 2. Poured  2 mL of BLACK   from bottle  2 to bottle  5
 
 
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|       |   |       |   |RED    |   |GREY   |   |YELLOW |   |ORANGE |   |PURPLE |   |PINK   |   |ORANGE |   |       |   |       |   
-|CYAN   |   |YELLOW |   |PURPLE |   |GREY   |   |EMERALD|   |EMERALD|   |WHITE  |   |PINK   |   |ORANGE |   |       |   |       |   
-|GREY   |   |WHITE  |   |RED    |   |YELLOW |   |RED    |   |EMERALD|   |CYAN   |   |WHITE  |   |CYAN   |   |       |   |       |   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+   [1]         [2]         [3]         [4]         [5]         [6]      
+|       |   |       |   |ORANGE |   |PURPLE |   |       |   |       |   
+|BLACK  |   |GREY   |   |GREY   |   |PURPLE |   |       |   |       |   
+|PURPLE |   |GREY   |   |ORANGE |   |PURPLE |   |BLACK  |   |       |   
+|GREY   |   |BLACK  |   |ORANGE |   |ORANGE |   |BLACK  |   |       |   
+---------   ---------   ---------   ---------   ---------   ---------   
 
- 3. Poured  1 mL of EMERALD from bottle  2 to bottle 11
+ 3. Poured  1 mL of GREY    from bottle  1 to bottle  2
 
 
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|       |   |       |   |       |   |GREY   |   |YELLOW |   |ORANGE |   |PURPLE |   |PINK   |   |ORANGE |   |       |   |       |   
-|CYAN   |   |YELLOW |   |PURPLE |   |GREY   |   |EMERALD|   |EMERALD|   |WHITE  |   |PINK   |   |ORANGE |   |       |   |       |   
-|GREY   |   |WHITE  |   |RED    |   |YELLOW |   |RED    |   |EMERALD|   |CYAN   |   |WHITE  |   |CYAN   |   |RED    |   |       |   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+   [1]         [2]         [3]         [4]         [5]         [6]      
+|       |   |       |   |ORANGE |   |PURPLE |   |       |   |       |   
+|       |   |GREY   |   |GREY   |   |PURPLE |   |BLACK  |   |       |   
+|PURPLE |   |GREY   |   |ORANGE |   |PURPLE |   |BLACK  |   |       |   
+|GREY   |   |BLACK  |   |ORANGE |   |ORANGE |   |BLACK  |   |       |   
+---------   ---------   ---------   ---------   ---------   ---------   
 
- 4. Poured  1 mL of RED     from bottle  3 to bottle 10
+ 4. Poured  1 mL of BLACK   from bottle  1 to bottle  5
 
 
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|       |   |YELLOW |   |       |   |GREY   |   |       |   |ORANGE |   |PURPLE |   |PINK   |   |ORANGE |   |       |   |       |   
-|CYAN   |   |YELLOW |   |PURPLE |   |GREY   |   |EMERALD|   |EMERALD|   |WHITE  |   |PINK   |   |ORANGE |   |       |   |       |   
-|GREY   |   |WHITE  |   |RED    |   |YELLOW |   |RED    |   |EMERALD|   |CYAN   |   |WHITE  |   |CYAN   |   |RED    |   |       |   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+   [1]         [2]         [3]         [4]         [5]         [6]      
+|       |   |       |   |ORANGE |   |PURPLE |   |       |   |       |   
+|       |   |GREY   |   |GREY   |   |PURPLE |   |BLACK  |   |       |   
+|       |   |GREY   |   |ORANGE |   |PURPLE |   |BLACK  |   |       |   
+|GREY   |   |BLACK  |   |ORANGE |   |ORANGE |   |BLACK  |   |PURPLE |   
+---------   ---------   ---------   ---------   ---------   ---------   
 
- 5. Poured  1 mL of YELLOW  from bottle  5 to bottle  2
+ 5. Poured  1 mL of PURPLE  from bottle  1 to bottle  6
 
 
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|       |   |YELLOW |   |       |   |GREY   |   |       |   |ORANGE |   |PURPLE |   |PINK   |   |ORANGE |   |       |   |       |   
-|CYAN   |   |YELLOW |   |PURPLE |   |GREY   |   |       |   |EMERALD|   |WHITE  |   |PINK   |   |ORANGE |   |       |   |       |   
-|GREY   |   |WHITE  |   |RED    |   |YELLOW |   |RED    |   |EMERALD|   |CYAN   |   |WHITE  |   |CYAN   |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+   [1]         [2]         [3]         [4]         [5]         [6]      
+|       |   |       |   |ORANGE |   |PURPLE |   |       |   |       |   
+|GREY   |   |       |   |GREY   |   |PURPLE |   |BLACK  |   |       |   
+|GREY   |   |       |   |ORANGE |   |PURPLE |   |BLACK  |   |       |   
+|GREY   |   |BLACK  |   |ORANGE |   |ORANGE |   |BLACK  |   |PURPLE |   
+---------   ---------   ---------   ---------   ---------   ---------   
 
- 6. Poured  1 mL of EMERALD from bottle  5 to bottle 11
+ 6. Poured  2 mL of GREY    from bottle  2 to bottle  1
 
 
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|       |   |YELLOW |   |       |   |GREY   |   |       |   |ORANGE |   |PURPLE |   |PINK   |   |ORANGE |   |       |   |       |   
-|CYAN   |   |YELLOW |   |PURPLE |   |GREY   |   |       |   |EMERALD|   |WHITE  |   |PINK   |   |ORANGE |   |RED    |   |       |   
-|GREY   |   |WHITE  |   |RED    |   |YELLOW |   |       |   |EMERALD|   |CYAN   |   |WHITE  |   |CYAN   |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+   [1]         [2]         [3]         [4]         [5]         [6]      
+|       |   |       |   |ORANGE |   |PURPLE |   |BLACK  |   |       |   
+|GREY   |   |       |   |GREY   |   |PURPLE |   |BLACK  |   |       |   
+|GREY   |   |       |   |ORANGE |   |PURPLE |   |BLACK  |   |       |   
+|GREY   |   |       |   |ORANGE |   |ORANGE |   |BLACK  |   |PURPLE |   
+---------   ---------   ---------   ---------   ---------   ---------   
 
- 7. Poured  1 mL of RED     from bottle  5 to bottle 10
+ 7. Poured  1 mL of BLACK   from bottle  2 to bottle  5
 
 
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|       |   |YELLOW |   |PURPLE |   |GREY   |   |       |   |ORANGE |   |       |   |PINK   |   |ORANGE |   |       |   |       |   
-|CYAN   |   |YELLOW |   |PURPLE |   |GREY   |   |       |   |EMERALD|   |WHITE  |   |PINK   |   |ORANGE |   |RED    |   |       |   
-|GREY   |   |WHITE  |   |RED    |   |YELLOW |   |       |   |EMERALD|   |CYAN   |   |WHITE  |   |CYAN   |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+   [1]         [2]         [3]         [4]         [5]         [6]      
+|       |   |       |   |ORANGE |   |       |   |BLACK  |   |PURPLE |   
+|GREY   |   |       |   |GREY   |   |       |   |BLACK  |   |PURPLE |   
+|GREY   |   |       |   |ORANGE |   |       |   |BLACK  |   |PURPLE |   
+|GREY   |   |       |   |ORANGE |   |ORANGE |   |BLACK  |   |PURPLE |   
+---------   ---------   ---------   ---------   ---------   ---------   
 
- 8. Poured  1 mL of PURPLE  from bottle  7 to bottle  3
+ 8. Poured  3 mL of PURPLE  from bottle  4 to bottle  6
 
 
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|       |   |YELLOW |   |PURPLE |   |GREY   |   |       |   |ORANGE |   |       |   |       |   |ORANGE |   |       |   |       |   
-|CYAN   |   |YELLOW |   |PURPLE |   |GREY   |   |PINK   |   |EMERALD|   |WHITE  |   |       |   |ORANGE |   |RED    |   |       |   
-|GREY   |   |WHITE  |   |RED    |   |YELLOW |   |PINK   |   |EMERALD|   |CYAN   |   |WHITE  |   |CYAN   |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+   [1]         [2]         [3]         [4]         [5]         [6]      
+|       |   |       |   |       |   |       |   |BLACK  |   |PURPLE |   
+|GREY   |   |       |   |GREY   |   |       |   |BLACK  |   |PURPLE |   
+|GREY   |   |       |   |ORANGE |   |ORANGE |   |BLACK  |   |PURPLE |   
+|GREY   |   |       |   |ORANGE |   |ORANGE |   |BLACK  |   |PURPLE |   
+---------   ---------   ---------   ---------   ---------   ---------   
 
- 9. Poured  2 mL of PINK    from bottle  8 to bottle  5
+ 9. Poured  1 mL of ORANGE  from bottle  3 to bottle  4
 
 
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|       |   |YELLOW |   |PURPLE |   |GREY   |   |       |   |ORANGE |   |       |   |       |   |ORANGE |   |       |   |       |   
-|CYAN   |   |YELLOW |   |PURPLE |   |GREY   |   |PINK   |   |EMERALD|   |       |   |WHITE  |   |ORANGE |   |RED    |   |       |   
-|GREY   |   |WHITE  |   |RED    |   |YELLOW |   |PINK   |   |EMERALD|   |CYAN   |   |WHITE  |   |CYAN   |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+   [1]         [2]         [3]         [4]         [5]         [6]      
+|GREY   |   |       |   |       |   |       |   |BLACK  |   |PURPLE |   
+|GREY   |   |       |   |       |   |       |   |BLACK  |   |PURPLE |   
+|GREY   |   |       |   |ORANGE |   |ORANGE |   |BLACK  |   |PURPLE |   
+|GREY   |   |       |   |ORANGE |   |ORANGE |   |BLACK  |   |PURPLE |   
+---------   ---------   ---------   ---------   ---------   ---------   
 
-10. Poured  1 mL of WHITE   from bottle  7 to bottle  8
+10. Poured  1 mL of GREY    from bottle  3 to bottle  1
 
 
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|CYAN   |   |YELLOW |   |PURPLE |   |GREY   |   |       |   |ORANGE |   |       |   |       |   |ORANGE |   |       |   |       |   
-|CYAN   |   |YELLOW |   |PURPLE |   |GREY   |   |PINK   |   |EMERALD|   |       |   |WHITE  |   |ORANGE |   |RED    |   |       |   
-|GREY   |   |WHITE  |   |RED    |   |YELLOW |   |PINK   |   |EMERALD|   |       |   |WHITE  |   |CYAN   |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+   [1]         [2]         [3]         [4]         [5]         [6]      
+|GREY   |   |       |   |       |   |ORANGE |   |BLACK  |   |PURPLE |   
+|GREY   |   |       |   |       |   |ORANGE |   |BLACK  |   |PURPLE |   
+|GREY   |   |       |   |       |   |ORANGE |   |BLACK  |   |PURPLE |   
+|GREY   |   |       |   |       |   |ORANGE |   |BLACK  |   |PURPLE |   
+---------   ---------   ---------   ---------   ---------   ---------   
 
-11. Poured  1 mL of CYAN    from bottle  7 to bottle  1
-
-
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|CYAN   |   |YELLOW |   |PURPLE |   |GREY   |   |       |   |       |   |       |   |       |   |ORANGE |   |       |   |       |   
-|CYAN   |   |YELLOW |   |PURPLE |   |GREY   |   |PINK   |   |EMERALD|   |       |   |WHITE  |   |ORANGE |   |RED    |   |       |   
-|GREY   |   |WHITE  |   |RED    |   |YELLOW |   |PINK   |   |EMERALD|   |ORANGE |   |WHITE  |   |CYAN   |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
-
-12. Poured  1 mL of ORANGE  from bottle  6 to bottle  7
-
-
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|CYAN   |   |YELLOW |   |PURPLE |   |GREY   |   |       |   |       |   |       |   |       |   |ORANGE |   |       |   |EMERALD|   
-|CYAN   |   |YELLOW |   |PURPLE |   |GREY   |   |PINK   |   |       |   |       |   |WHITE  |   |ORANGE |   |RED    |   |EMERALD|   
-|GREY   |   |WHITE  |   |RED    |   |YELLOW |   |PINK   |   |       |   |ORANGE |   |WHITE  |   |CYAN   |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
-
-13. Poured  2 mL of EMERALD from bottle  6 to bottle 11
-
-
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|CYAN   |   |YELLOW |   |       |   |GREY   |   |       |   |       |   |       |   |       |   |ORANGE |   |       |   |EMERALD|   
-|CYAN   |   |YELLOW |   |       |   |GREY   |   |PINK   |   |PURPLE |   |       |   |WHITE  |   |ORANGE |   |RED    |   |EMERALD|   
-|GREY   |   |WHITE  |   |RED    |   |YELLOW |   |PINK   |   |PURPLE |   |ORANGE |   |WHITE  |   |CYAN   |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
-
-14. Poured  2 mL of PURPLE  from bottle  3 to bottle  6
-
-
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|CYAN   |   |YELLOW |   |       |   |GREY   |   |       |   |       |   |       |   |       |   |ORANGE |   |RED    |   |EMERALD|   
-|CYAN   |   |YELLOW |   |       |   |GREY   |   |PINK   |   |PURPLE |   |       |   |WHITE  |   |ORANGE |   |RED    |   |EMERALD|   
-|GREY   |   |WHITE  |   |       |   |YELLOW |   |PINK   |   |PURPLE |   |ORANGE |   |WHITE  |   |CYAN   |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
-
-15. Poured  1 mL of RED     from bottle  3 to bottle 10
-
-
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|       |   |YELLOW |   |       |   |GREY   |   |       |   |       |   |       |   |       |   |ORANGE |   |RED    |   |EMERALD|   
-|       |   |YELLOW |   |CYAN   |   |GREY   |   |PINK   |   |PURPLE |   |       |   |WHITE  |   |ORANGE |   |RED    |   |EMERALD|   
-|GREY   |   |WHITE  |   |CYAN   |   |YELLOW |   |PINK   |   |PURPLE |   |ORANGE |   |WHITE  |   |CYAN   |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
-
-16. Poured  2 mL of CYAN    from bottle  1 to bottle  3
-
-
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|GREY   |   |YELLOW |   |       |   |       |   |       |   |       |   |       |   |       |   |ORANGE |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |       |   |PINK   |   |PURPLE |   |       |   |WHITE  |   |ORANGE |   |RED    |   |EMERALD|   
-|GREY   |   |WHITE  |   |CYAN   |   |YELLOW |   |PINK   |   |PURPLE |   |ORANGE |   |WHITE  |   |CYAN   |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
-
-17. Poured  2 mL of GREY    from bottle  4 to bottle  1
-
-
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|GREY   |   |       |   |       |   |YELLOW |   |       |   |       |   |       |   |       |   |ORANGE |   |RED    |   |EMERALD|   
-|GREY   |   |       |   |CYAN   |   |YELLOW |   |PINK   |   |PURPLE |   |       |   |WHITE  |   |ORANGE |   |RED    |   |EMERALD|   
-|GREY   |   |WHITE  |   |CYAN   |   |YELLOW |   |PINK   |   |PURPLE |   |ORANGE |   |WHITE  |   |CYAN   |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
-
-18. Poured  2 mL of YELLOW  from bottle  2 to bottle  4
-
-
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|GREY   |   |       |   |       |   |YELLOW |   |       |   |       |   |       |   |WHITE  |   |ORANGE |   |RED    |   |EMERALD|   
-|GREY   |   |       |   |CYAN   |   |YELLOW |   |PINK   |   |PURPLE |   |       |   |WHITE  |   |ORANGE |   |RED    |   |EMERALD|   
-|GREY   |   |       |   |CYAN   |   |YELLOW |   |PINK   |   |PURPLE |   |ORANGE |   |WHITE  |   |CYAN   |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
-
-19. Poured  1 mL of WHITE   from bottle  2 to bottle  8
-
-
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|GREY   |   |YELLOW |   |       |   |       |   |       |   |       |   |       |   |WHITE  |   |ORANGE |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |       |   |PINK   |   |PURPLE |   |       |   |WHITE  |   |ORANGE |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |       |   |PINK   |   |PURPLE |   |ORANGE |   |WHITE  |   |CYAN   |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
-
-20. Poured  3 mL of YELLOW  from bottle  4 to bottle  2
-
-
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|GREY   |   |YELLOW |   |       |   |WHITE  |   |       |   |       |   |       |   |       |   |ORANGE |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |       |   |       |   |ORANGE |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |ORANGE |   |       |   |CYAN   |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |PINK   |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
-
-21. Poured  3 mL of WHITE   from bottle  8 to bottle  4
-
-
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|GREY   |   |YELLOW |   |       |   |WHITE  |   |       |   |       |   |       |   |PINK   |   |ORANGE |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |       |   |PURPLE |   |       |   |PINK   |   |ORANGE |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |       |   |PURPLE |   |ORANGE |   |PINK   |   |CYAN   |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |       |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
-
-22. Poured  3 mL of PINK    from bottle  5 to bottle  8
-
-
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|GREY   |   |YELLOW |   |       |   |WHITE  |   |       |   |       |   |ORANGE |   |PINK   |   |       |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |       |   |PURPLE |   |ORANGE |   |PINK   |   |       |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |       |   |PURPLE |   |ORANGE |   |PINK   |   |CYAN   |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |       |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
-
-23. Poured  2 mL of ORANGE  from bottle  9 to bottle  7
-
-
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |       |   |       |   |ORANGE |   |PINK   |   |       |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |       |   |PURPLE |   |ORANGE |   |PINK   |   |       |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |       |   |PURPLE |   |ORANGE |   |PINK   |   |       |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |       |   |PURPLE |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
-
-24. Poured  1 mL of CYAN    from bottle  9 to bottle  3
-
-
-   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]        [11]      
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |       |   |       |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |       |   |       |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |       |   |       |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
-|GREY   |   |YELLOW |   |CYAN   |   |WHITE  |   |       |   |       |   |ORANGE |   |PINK   |   |PURPLE |   |RED    |   |EMERALD|   
----------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
-
-25. Poured  3 mL of PURPLE  from bottle  6 to bottle  9
+11. Poured  2 mL of ORANGE  from bottle  3 to bottle  4
 
 
