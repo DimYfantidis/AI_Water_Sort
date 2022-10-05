@@ -2,20 +2,7 @@
 
 #include <iostream>
 #include <exception>
-
-#define MEMORY_LOGGING_ENABLED false
-
-#if MEMORY_LOGGING_ENABLED
-    static char LOG_BUFFER[BUFSIZ];
-
-    // Log Raw string.
-    #define LOG_R(message)      memoryAllocationLogger() << (message);
-    // Log Formatted string.
-    #define LOG_F(format, ...)  std::snprintf(LOG_BUFFER, BUFSIZ, format, __VA_ARGS__); memoryAllocationLogger() << LOG_BUFFER;
-#else
-    #define LOG_R(message)      /* do nothing */
-    #define LOG_F(format, ...)  /* do nothing */
-#endif // MEMORY_LOGGING_ENABLED
+#include <cstdarg>
 
 
 // --------------------------- PRIVATE ---------------------------
@@ -39,6 +26,22 @@ std::ofstream& MemoryPool::memoryAllocationLogger()
     return logger;
 }
 
+inline void MemoryPool::logMessage(const char* format...)
+{
+    if constexpr (MemoryPool::MEMORY_LOGGING_ENABLED)
+    {
+        static char LOG_BUFFER[BUFSIZ];
+
+        va_list args;
+        va_start(args, format);
+
+        std::vsnprintf(LOG_BUFFER, BUFSIZ, format, args);
+
+        va_end(args);
+
+        memoryAllocationLogger() << LOG_BUFFER;
+    }
+}
 
 // --------------------------- PUBLIC ---------------------------
 
@@ -58,7 +61,7 @@ MemoryPool::MemoryPool(size_t inst_bytes, size_t alloc_bytes)
 
 MemoryPool::~MemoryPool()
 {
-    LOG_F("Cleaning, 0x%p\n", reinterpret_cast<void*>(this))
+    logMessage("Cleaning, 0x%p\n", reinterpret_cast<void*>(this));
 
     for (pocket& p : m_allocatedPockets) {
         free(p.m_pAllocatedMemBlock);
@@ -74,18 +77,18 @@ void* MemoryPool::allocate()
         m_currentPocket = &m_allocatedPockets[m_pocketIndex];
     }
 
-    LOG_F("\nPocket [-0x%p-] (%d) has %zu space left in bytes\n", 
-        m_currentPocket, 
-        m_pocketIndex, 
+    logMessage("\nPocket [-0x%p-] (%d) has %zu space left in bytes\n",
+        m_currentPocket,
+        m_pocketIndex,
         m_currentPocket->m_totalAvailableBytes
-    )
-    LOG_F("\t > ALLOCATING %zu bytes: ", m_unitByteSize)
+    );
+    logMessage("\t > ALLOCATING %zu bytes: ", m_unitByteSize);
 
     if (m_pocketsWithGaps.empty())
     {
         char* temp = reinterpret_cast<char*>(m_currentPocket->m_pAllocatedMemBlock);
 
-        LOG_R("No gaps found to fill, continuing expansion\n")
+        logMessage("No gaps found to fill, continuing expansion\n");
 
         m_currentPocket->m_totalAvailableBytes -= m_unitByteSize;
 
@@ -96,11 +99,11 @@ void* MemoryPool::allocate()
 
     m_allocatedPockets[at].m_gapsInPocket.pop();
 
-    LOG_F("Gap at  (0x%p), pocket: 0x%p. Filling the gap (%zu) left\n",
+    logMessage("Gap at  (0x%p), pocket: 0x%p. Filling the gap (%zu) left\n",
         freeSpace,
         &m_allocatedPockets[at],
         m_allocatedPockets[at].m_gapsInPocket.size()
-    )
+    );
     m_pocketsWithGaps[at] -= 1;
     m_allocatedPockets[at].m_totalAvailableBytes -= m_unitByteSize;
 
@@ -125,12 +128,12 @@ void MemoryPool::deallocate(void* mem)
         {
             m_allocatedPockets[i].m_totalAvailableBytes += m_unitByteSize;
 
-            LOG_F("\t > RELEASING  %zu bytes: Pushing (0x%p) to stack. Pocket: 0x%p (%zu current)\n",
+            logMessage("\t > RELEASING  %zu bytes: Pushing (0x%p) to stack. Pocket: 0x%p (%zu current)\n",
                 m_unitByteSize,
                 mem,
                 &m_allocatedPockets[i],
                 m_allocatedPockets[i].m_gapsInPocket.size() + 1
-            )
+            );
 
             m_pocketsWithGaps[static_cast<size_t>(i)] += 1;
             m_allocatedPockets[i].m_gapsInPocket.push(mem);

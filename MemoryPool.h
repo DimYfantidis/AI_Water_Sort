@@ -10,15 +10,22 @@
 class MemoryPool
 {
 private:
+    static std::ofstream& memoryAllocationLogger();
+
+    static constexpr bool MEMORY_LOGGING_ENABLED = false;
+
+    static inline void logMessage(const char* format...);
+
+private:
     const size_t m_unitByteSize;
     const size_t m_allocationBytes;
 
     struct pocket
     {
-        void* m_pAllocatedMemBlock = nullptr;
+        void* m_pAllocatedMemBlock;
 
-        size_t m_totalAllocatedUnits = 0;
-        size_t m_totalAvailableBytes = 0;
+        size_t m_totalAllocatedUnits;
+        size_t m_totalAvailableBytes;
 
         std::queue<void*> m_gapsInPocket;
     };
@@ -32,8 +39,6 @@ private:
     std::unordered_map<size_t, size_t> m_pocketsWithGaps;
 
     void init(pocket& p) const;
-
-    static std::ofstream& memoryAllocationLogger();
 
 public:
     MemoryPool() = delete;

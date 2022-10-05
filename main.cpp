@@ -1,26 +1,47 @@
-#include <iostream>
-#include <fstream>
 #include <queue>
-#include <unordered_set>
-#include <unordered_map>
-#include <chrono>
 #include <ctime>
-#include <iomanip>
 #include <thread>
+#include <chrono>
+#include <fstream>
+#include <iomanip>
 #include <cstdint>
+#include <iostream>
+#include <unordered_set>
 
-#include "output_util.h"
 #include "State.h"
+#include "output_util.h"
 
 // Number of Bottles.
-#define BOTTLES_N       static_cast<size_t>(11)
+constexpr static size_t BOTTLES_N = static_cast<size_t>(11);
 
 // Record current time.
-#define READ_TIME()     std::chrono::system_clock::now()
+inline auto READ_TIME() { 
+    return std::chrono::system_clock::now(); 
+}
+
+typedef std::chrono::time_point<std::chrono::system_clock> timestamp_t;
 
 // Difference of two timestamps in milliseconds.
-#define MS_DIFF(x, y)   std::chrono::duration_cast<std::chrono::milliseconds>(y - x).count()
+constexpr auto MS_DIFF(const timestamp_t& x, const timestamp_t& y) {
+    return std::chrono::duration_cast<std::chrono::milliseconds>(y - x).count();
+}
 
+// If true, then object equality is ignored in case of collision.
+constexpr bool ALLOW_UNSAFE_PRUNNING = false;
+
+
+// Content equality of pointers (auxiliary struct for maps).
+template <typename T>
+struct EqualContents
+{
+    constexpr bool operator () (const T* a, const T* b) const noexcept
+    {
+        if constexpr (ALLOW_UNSAFE_PRUNNING) {
+            return true;
+        }
+        else return *a == *b;
+    }
+};
 
 // Implementation of Breadth First Search AI algorithm
 template <size_t size>
@@ -28,7 +49,7 @@ State<size>* BFS(State<size>& initial, uint64_t& examined, uint64_t& memory)
 {
     std::queue<State<size>*> frontier;
 
-    std::unordered_set<hash_t> closed;
+    std::unordered_set<State<size>*, std::hash<State<size>*>, EqualContents<State<size>>> closed(size * size * 10000);
 
     std::vector<State<size>*> children;
 
@@ -58,7 +79,7 @@ State<size>* BFS(State<size>& initial, uint64_t& examined, uint64_t& memory)
 
         frontier.pop();
 
-        if (closed.find(s->hashValue()) == closed.end())
+        if (closed.find(s) == closed.end())
         {
             examined += 1;
 
@@ -73,13 +94,13 @@ State<size>* BFS(State<size>& initial, uint64_t& examined, uint64_t& memory)
 
                 return result;
             }
-            closed.insert(s->hashValue());
+            closed.insert(s);
 
             s->expand(children);
 
             for (State<size>* child : children)
             {
-                if (closed.find(child->hashValue()) == closed.end())
+                if (closed.find(child) == closed.end())
                     frontier.push(child);
                 else
                     delete child;
@@ -135,8 +156,8 @@ std::string getSystemTimestamp()
     oss << DAY[now.tm_wday] << " " 
         << now.tm_mday << "/" 
         << now.tm_mon + 1 << "/" 
-        << now.tm_year + 1900 << "  -  "
-        << (now.tm_hour != 0 ? now.tm_hour % 12 : 12) << ":"
+        << now.tm_year + 1900 << "  -  " 
+        << (now.tm_hour != 0 ? now.tm_hour % 12 : 12) << ":" 
         << std::setw(2) << std::setfill('0') << now.tm_min << (now.tm_hour / 12 ? " PM" : " AM");
 
     return oss.str();

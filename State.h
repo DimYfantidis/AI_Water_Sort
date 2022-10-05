@@ -8,6 +8,7 @@
 #include <ctime>
 #include <iomanip>
 #include <cstring>
+#include <cstddef>
 #include <cstdint>
 #include <initializer_list>
 
@@ -62,6 +63,8 @@
  *          Returns the set of the child states.
  */
 
+
+/* ------------------------------ DECLARATION ------------------------------ */
 
 typedef size_t  hash_t;
 typedef int8_t  bsize_t;
@@ -131,11 +134,32 @@ public:
     void* operator new(size_t bytes);
 
     void operator delete(void* memory);
-
-    friend std::hash<State<size>>;
 }
 POP_PACK;
 
+
+/* ------------------------------ STATE HASHING ------------------------------ */
+
+namespace std
+{
+    template<size_t size>
+    struct hash<State<size>>
+    {
+        size_t operator () (const State<size>& s) const noexcept {
+            return s.hashValue();
+        }
+    };
+
+    template<size_t size>
+    struct hash<State<size>*>
+    {
+        size_t operator () (const State<size>* s) const noexcept {
+            return s->hashValue();
+        }
+    };
+}
+
+/* ------------------------------ IMPLEMENTATION ------------------------------ */
 
 template <size_t size>
 State<size>::State()
@@ -190,7 +214,7 @@ void State<size>::init()
     std::vector<color_t> colors(size - 2);
     std::vector<int> ml_left(colors.size(), 4);
 
-    static std::mt19937 generator(static_cast<unsigned int>(/*time(nullptr)*/ +10));
+    static std::mt19937 generator(static_cast<unsigned int>(time(nullptr) +10));
 
     std::uniform_int_distribution<size_t> distribution(1, TOTAL_COLORS);
     std::uniform_int_distribution<size_t> color_dist(0, colors.size() - 1);
@@ -391,10 +415,8 @@ bool State<size>::operator == (const State<size>& other) const
     {
         for (size_t i = 0; i < size; ++i)
         {
-            if (bottles[i].getColor(0) != other.bottles[i].getColor(0)
-                || bottles[i].getColor(1) != other.bottles[i].getColor(1)
-                || bottles[i].getColor(2) != other.bottles[i].getColor(2)
-                || bottles[i].getColor(3) != other.bottles[i].getColor(3)
+            if (bottles[i].getByte(0) != other.bottles[i].getByte(0)
+                || bottles[i].getByte(1) != other.bottles[i].getByte(1)
                 ) {
                 return false;
             }
