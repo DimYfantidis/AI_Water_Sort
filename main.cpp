@@ -12,7 +12,7 @@
 #include "output_util.h"
 
 // Number of Bottles.
-constexpr static size_t BOTTLES_N = static_cast<size_t>(11);
+constexpr static size_t BOTTLES_N = static_cast<size_t>(10);
 
 // Record current time.
 inline auto READ_TIME() { 
