@@ -1,0 +1,247 @@
+METRICS FOR 10 BOTTLES:
+-> Depth:          	23
+-> Total Nodes:    	7086996
+-> Examined Nodes: 	2429710
+-> Elapsed Time:   	00h : 01m : 17s : 839ms
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|GREY   |   |BROWN  |   |YELLOW |   |YELLOW |   |YELLOW |   |CYAN   |   |ORANGE |   |LIME   |   |       |   |       |   
+|LIME   |   |GREY   |   |LIME   |   |GREY   |   |LIME   |   |BROWN  |   |ORANGE |   |BLUE   |   |       |   |       |   
+|BLACK  |   |BLUE   |   |BROWN  |   |CYAN   |   |BLACK  |   |YELLOW |   |BLACK  |   |BLUE   |   |       |   |       |   
+|GREY   |   |BLACK  |   |CYAN   |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |       |   |       |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+ 1. No action committed (initial state)
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|GREY   |   |BROWN  |   |       |   |YELLOW |   |YELLOW |   |CYAN   |   |ORANGE |   |LIME   |   |       |   |       |   
+|LIME   |   |GREY   |   |LIME   |   |GREY   |   |LIME   |   |BROWN  |   |ORANGE |   |BLUE   |   |       |   |       |   
+|BLACK  |   |BLUE   |   |BROWN  |   |CYAN   |   |BLACK  |   |YELLOW |   |BLACK  |   |BLUE   |   |       |   |       |   
+|GREY   |   |BLACK  |   |CYAN   |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |YELLOW |   |       |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+ 2. Poured  1 mL of YELLOW  from bottle  3 to bottle  9
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|GREY   |   |BROWN  |   |       |   |YELLOW |   |YELLOW |   |CYAN   |   |ORANGE |   |LIME   |   |       |   |       |   
+|LIME   |   |GREY   |   |       |   |GREY   |   |LIME   |   |BROWN  |   |ORANGE |   |BLUE   |   |       |   |       |   
+|BLACK  |   |BLUE   |   |BROWN  |   |CYAN   |   |BLACK  |   |YELLOW |   |BLACK  |   |BLUE   |   |       |   |       |   
+|GREY   |   |BLACK  |   |CYAN   |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+ 3. Poured  1 mL of LIME    from bottle  3 to bottle 10
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|GREY   |   |       |   |       |   |YELLOW |   |YELLOW |   |CYAN   |   |ORANGE |   |LIME   |   |       |   |       |   
+|LIME   |   |GREY   |   |BROWN  |   |GREY   |   |LIME   |   |BROWN  |   |ORANGE |   |BLUE   |   |       |   |       |   
+|BLACK  |   |BLUE   |   |BROWN  |   |CYAN   |   |BLACK  |   |YELLOW |   |BLACK  |   |BLUE   |   |       |   |       |   
+|GREY   |   |BLACK  |   |CYAN   |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+ 4. Poured  1 mL of BROWN   from bottle  2 to bottle  3
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|       |   |GREY   |   |       |   |YELLOW |   |YELLOW |   |CYAN   |   |ORANGE |   |LIME   |   |       |   |       |   
+|LIME   |   |GREY   |   |BROWN  |   |GREY   |   |LIME   |   |BROWN  |   |ORANGE |   |BLUE   |   |       |   |       |   
+|BLACK  |   |BLUE   |   |BROWN  |   |CYAN   |   |BLACK  |   |YELLOW |   |BLACK  |   |BLUE   |   |       |   |       |   
+|GREY   |   |BLACK  |   |CYAN   |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+ 5. Poured  1 mL of GREY    from bottle  1 to bottle  2
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|       |   |GREY   |   |       |   |YELLOW |   |YELLOW |   |CYAN   |   |ORANGE |   |LIME   |   |       |   |       |   
+|       |   |GREY   |   |BROWN  |   |GREY   |   |LIME   |   |BROWN  |   |ORANGE |   |BLUE   |   |       |   |       |   
+|BLACK  |   |BLUE   |   |BROWN  |   |CYAN   |   |BLACK  |   |YELLOW |   |BLACK  |   |BLUE   |   |       |   |LIME   |   
+|GREY   |   |BLACK  |   |CYAN   |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+ 6. Poured  1 mL of LIME    from bottle  1 to bottle 10
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|       |   |GREY   |   |       |   |       |   |YELLOW |   |CYAN   |   |ORANGE |   |LIME   |   |       |   |       |   
+|       |   |GREY   |   |BROWN  |   |GREY   |   |LIME   |   |BROWN  |   |ORANGE |   |BLUE   |   |       |   |       |   
+|BLACK  |   |BLUE   |   |BROWN  |   |CYAN   |   |BLACK  |   |YELLOW |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLACK  |   |CYAN   |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+ 7. Poured  1 mL of YELLOW  from bottle  4 to bottle  9
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|       |   |GREY   |   |       |   |       |   |       |   |CYAN   |   |ORANGE |   |LIME   |   |       |   |       |   
+|       |   |GREY   |   |BROWN  |   |GREY   |   |LIME   |   |BROWN  |   |ORANGE |   |BLUE   |   |YELLOW |   |       |   
+|BLACK  |   |BLUE   |   |BROWN  |   |CYAN   |   |BLACK  |   |YELLOW |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLACK  |   |CYAN   |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+ 8. Poured  1 mL of YELLOW  from bottle  5 to bottle  9
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|       |   |GREY   |   |       |   |       |   |       |   |CYAN   |   |ORANGE |   |LIME   |   |       |   |       |   
+|       |   |GREY   |   |BROWN  |   |GREY   |   |       |   |BROWN  |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+|BLACK  |   |BLUE   |   |BROWN  |   |CYAN   |   |BLACK  |   |YELLOW |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLACK  |   |CYAN   |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+ 9. Poured  1 mL of LIME    from bottle  5 to bottle 10
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|       |   |GREY   |   |       |   |       |   |       |   |CYAN   |   |ORANGE |   |LIME   |   |       |   |       |   
+|       |   |GREY   |   |BROWN  |   |GREY   |   |BLACK  |   |BROWN  |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+|       |   |BLUE   |   |BROWN  |   |CYAN   |   |BLACK  |   |YELLOW |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLACK  |   |CYAN   |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+10. Poured  1 mL of BLACK   from bottle  1 to bottle  5
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|       |   |       |   |       |   |       |   |       |   |CYAN   |   |ORANGE |   |LIME   |   |       |   |       |   
+|GREY   |   |       |   |BROWN  |   |GREY   |   |BLACK  |   |BROWN  |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLUE   |   |BROWN  |   |CYAN   |   |BLACK  |   |YELLOW |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLACK  |   |CYAN   |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+11. Poured  2 mL of GREY    from bottle  2 to bottle  1
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|GREY   |   |       |   |       |   |       |   |       |   |CYAN   |   |ORANGE |   |LIME   |   |       |   |       |   
+|GREY   |   |       |   |BROWN  |   |       |   |BLACK  |   |BROWN  |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLUE   |   |BROWN  |   |CYAN   |   |BLACK  |   |YELLOW |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLACK  |   |CYAN   |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+12. Poured  1 mL of GREY    from bottle  4 to bottle  1
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|GREY   |   |       |   |       |   |       |   |       |   |       |   |ORANGE |   |LIME   |   |       |   |       |   
+|GREY   |   |       |   |BROWN  |   |CYAN   |   |BLACK  |   |BROWN  |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLUE   |   |BROWN  |   |CYAN   |   |BLACK  |   |YELLOW |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLACK  |   |CYAN   |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+13. Poured  1 mL of CYAN    from bottle  6 to bottle  4
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|GREY   |   |       |   |BROWN  |   |       |   |       |   |       |   |ORANGE |   |LIME   |   |       |   |       |   
+|GREY   |   |       |   |BROWN  |   |CYAN   |   |BLACK  |   |       |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLUE   |   |BROWN  |   |CYAN   |   |BLACK  |   |YELLOW |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLACK  |   |CYAN   |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+14. Poured  1 mL of BROWN   from bottle  6 to bottle  3
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|GREY   |   |       |   |BROWN  |   |       |   |       |   |       |   |ORANGE |   |LIME   |   |YELLOW |   |       |   
+|GREY   |   |       |   |BROWN  |   |CYAN   |   |BLACK  |   |       |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLUE   |   |BROWN  |   |CYAN   |   |BLACK  |   |       |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLACK  |   |CYAN   |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+15. Poured  1 mL of YELLOW  from bottle  6 to bottle  9
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|GREY   |   |       |   |BROWN  |   |       |   |       |   |       |   |       |   |LIME   |   |YELLOW |   |       |   
+|GREY   |   |       |   |BROWN  |   |CYAN   |   |BLACK  |   |ORANGE |   |       |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLUE   |   |BROWN  |   |CYAN   |   |BLACK  |   |ORANGE |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLACK  |   |CYAN   |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+16. Poured  2 mL of ORANGE  from bottle  7 to bottle  6
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|GREY   |   |       |   |BROWN  |   |       |   |       |   |       |   |BLACK  |   |LIME   |   |YELLOW |   |       |   
+|GREY   |   |       |   |BROWN  |   |CYAN   |   |       |   |ORANGE |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLUE   |   |BROWN  |   |CYAN   |   |       |   |ORANGE |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLACK  |   |CYAN   |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+17. Poured  2 mL of BLACK   from bottle  5 to bottle  7
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|GREY   |   |       |   |BROWN  |   |       |   |       |   |       |   |BLACK  |   |LIME   |   |YELLOW |   |       |   
+|GREY   |   |       |   |BROWN  |   |       |   |CYAN   |   |ORANGE |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLUE   |   |BROWN  |   |       |   |CYAN   |   |ORANGE |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLACK  |   |CYAN   |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+18. Poured  2 mL of CYAN    from bottle  4 to bottle  5
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|GREY   |   |       |   |       |   |BROWN  |   |       |   |       |   |BLACK  |   |LIME   |   |YELLOW |   |       |   
+|GREY   |   |       |   |       |   |BROWN  |   |CYAN   |   |ORANGE |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLUE   |   |       |   |BROWN  |   |CYAN   |   |ORANGE |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLACK  |   |CYAN   |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+19. Poured  3 mL of BROWN   from bottle  3 to bottle  4
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|GREY   |   |       |   |       |   |BROWN  |   |CYAN   |   |       |   |BLACK  |   |LIME   |   |YELLOW |   |       |   
+|GREY   |   |       |   |       |   |BROWN  |   |CYAN   |   |ORANGE |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLUE   |   |       |   |BROWN  |   |CYAN   |   |ORANGE |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLACK  |   |       |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+20. Poured  1 mL of CYAN    from bottle  3 to bottle  5
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|GREY   |   |       |   |       |   |BROWN  |   |CYAN   |   |       |   |BLACK  |   |       |   |YELLOW |   |LIME   |   
+|GREY   |   |       |   |       |   |BROWN  |   |CYAN   |   |ORANGE |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLUE   |   |       |   |BROWN  |   |CYAN   |   |ORANGE |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLACK  |   |       |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+21. Poured  1 mL of LIME    from bottle  8 to bottle 10
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|GREY   |   |       |   |       |   |BROWN  |   |CYAN   |   |       |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |       |   |       |   |BROWN  |   |CYAN   |   |ORANGE |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |       |   |       |   |BROWN  |   |CYAN   |   |ORANGE |   |BLACK  |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLACK  |   |       |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+22. Poured  1 mL of BLUE    from bottle  2 to bottle  8
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|GREY   |   |BLACK  |   |       |   |BROWN  |   |CYAN   |   |       |   |       |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLACK  |   |       |   |BROWN  |   |CYAN   |   |ORANGE |   |       |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLACK  |   |       |   |BROWN  |   |CYAN   |   |ORANGE |   |       |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLACK  |   |       |   |BROWN  |   |CYAN   |   |ORANGE |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+23. Poured  3 mL of BLACK   from bottle  7 to bottle  2
+
+
+   [1]         [2]         [3]         [4]         [5]         [6]         [7]         [8]         [9]        [10]      
+|GREY   |   |BLACK  |   |       |   |BROWN  |   |CYAN   |   |       |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLACK  |   |       |   |BROWN  |   |CYAN   |   |       |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLACK  |   |       |   |BROWN  |   |CYAN   |   |       |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+|GREY   |   |BLACK  |   |       |   |BROWN  |   |CYAN   |   |       |   |ORANGE |   |BLUE   |   |YELLOW |   |LIME   |   
+---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   ---------   
+
+24. Poured  3 mL of ORANGE  from bottle  6 to bottle  7
+
+

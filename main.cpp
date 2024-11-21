@@ -12,7 +12,7 @@
 #include "output_util.h"
 
 // Number of Bottles.
-constexpr static size_t BOTTLES_N = static_cast<size_t>(10);
+constexpr static size_t BOTTLES_N = static_cast<size_t>(5);
 
 // Record current time.
 inline auto READ_TIME() { 
@@ -169,7 +169,7 @@ int main()
     uint64_t examined = 0;    // Number of nodes examined by the BFS algorithm.
     uint64_t duration;        // Duration of BFS runtime in milliseconds.
 
-    std::ofstream ofs("results.txt", std::ios::out);        // File for exporting metrics and solution's path.
+    std::ofstream ofs("./out/results.txt", std::ios::out);  // File for exporting metrics and solution's path.
     std::ostream& out = (ofs.is_open() ? ofs : std::cout);  // Unless opened successfully, logging is continued at the command line.
 
     std::chrono::time_point<std::chrono::system_clock> t0;  // Object for recording start time of BFS.
