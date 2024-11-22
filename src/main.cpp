@@ -12,7 +12,7 @@
 #include "output_util.h"
 
 // Number of Bottles.
-constexpr static size_t BOTTLES_N = static_cast<size_t>(5);
+constexpr static size_t BOTTLES_N = static_cast<size_t>(8);
 
 // Record current time.
 inline auto READ_TIME() { 
@@ -263,7 +263,9 @@ int main()
             << ". " << path[i]->getActionName() << "\n\n" << std::endl;
     }
 
-    if (ofs.is_open()) {
+    if (ofs.is_open()) 
+    {
+        std::cout << "\n\nSolution generated at \"results.txt\" within the current working directory" << std::endl;
         ofs.close();
     }
 
