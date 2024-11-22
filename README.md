@@ -40,11 +40,15 @@ An implementation of the Breadth First Search algorithm for playing the "Water S
   git clone https://github.com/DimYfantidis/AI_Water_Sort.git
   ```
 * **To configure the project for the GCC compiler (supports only GCC ver.7 and above):**
-  1. Compile the project
+  1. Check the installed compiler's version; it must be $\geq$ 7.0.0
+      ```
+      g++ --version
+      ```
+  2. Compile the project
       ```
       g++ -std=c++17 -O3 src/main.cpp src/Bottle.cpp src/MemoryPool.cpp -Iinclude -o ai_water_sort
       ```
-  2. Launch project:
+  3. Launch project:
       ```
       ./ai_water_sort
       ```
