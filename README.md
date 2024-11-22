@@ -1,6 +1,13 @@
 # Water Sort Puzzle
 An implementation of the Breadth First Search algorithm for playing the "Water Sort" puzzle game.
 
+
+* [Rules of the Game](#rules-of-the-game)  
+* [Features](#features)  
+* [Setup](#setup)  
+
+<br/>
+
 ### Rules of the Game
 * Each state of the puzzle consists of $N$ liquid bottles with 4 mL capacity each (total space: $4N$ mL)
 * A total of $N - 2$ different colors are present with 4 mL of each one being dispersed in different bottles (total liquids: $4N-8$ mL)
@@ -22,3 +29,32 @@ An implementation of the Breadth First Search algorithm for playing the "Water S
   - Runtime complexity is $\mathcal{O}(b|S|)$, where $b$ is the branching factor (average number of children of each state).
 * Implementation uses low-level representations of data and static values where possible. This ensures maximum state compression as to make the project's execution feasible, as with every added bottle the search space grows exponentially bigger.
 * Allowed number of bottles is $2 < N < 18$. However, it is still advised that $N \leq 10$ is used as $10 < N \leq 12$ is very demanding in memory and execution time, and $N > 12$ is practically unfeasible for any desktop computer.
+
+
+
+### Setup
+* **Clone the project**
+  ```
+  git clone https://github.com/DimYfantidis/AI_Water_Sort.git
+  ```
+* **To configure the project for the GCC compiler (supports only GCC ver.7 and above):**
+  1. Compile the project
+      ```
+      g++ -std=c++17 -O3 src/main.cpp src/Bottle.cpp src/MemoryPool.cpp -Iinclude -o ai_water_sort
+      ```
+  2. Launch project:
+      ```
+      ./ai_water_sort
+      ```
+* **To configure the project for Visual Studio (MSVC):**
+  1. Navigate to the `build` directory:
+      ```
+      cd ./build
+      ```
+  2. Build with CMake:
+      ```
+      cmake ..
+      ```
+  3. Open the main solution, `./build/ai_water_sort.sln`, using Visual Studio.
+  4. Set the `ai_water_sort` project as main solution
+  5. Run the program (Ctrl + F5)
