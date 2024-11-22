@@ -69,4 +69,4 @@ An implementation of the Breadth First Search algorithm for playing the "Water S
       ```C++
       constexpr static size_t BOTTLES_N = static_cast<size_t>(8);
       ```
-  2. Build again before executing the project again.
+  2. Build again before executing the project.
