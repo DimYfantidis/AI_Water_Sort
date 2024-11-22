@@ -64,3 +64,9 @@ An implementation of the Breadth First Search algorithm for playing the "Water S
   3. Open the main solution, `./build/ai_water_sort.sln`, using Visual Studio.
   4. Set the `ai_water_sort` project as main solution
   5. Run the program (Ctrl + F5)
+* **To change the number of bottles:**
+  1. Change the `BOTTLES_N` variable found at the top of the `main.cpp` file (defaults to 8)
+      ```C++
+      constexpr static size_t BOTTLES_N = static_cast<size_t>(8);
+      ```
+  2. Build again before executing the project again.
