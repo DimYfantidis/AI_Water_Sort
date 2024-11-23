@@ -56,7 +56,7 @@ An implementation of the Breadth First Search algorithm for playing the "Water S
       ```
       ./ai_water_sort
       ```
-* **To configure the project for Visual Studio (MSVC):**  
+* **To configure the project for Visual Studio (MSVC) on Windows:**  
 
   1. Navigate to the `build` directory:  
 
