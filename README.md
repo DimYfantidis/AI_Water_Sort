@@ -36,36 +36,45 @@ An implementation of the Breadth First Search algorithm for playing the "Water S
 
 ### Setup
 * **Clone the project**
+
   ```
   git clone https://github.com/DimYfantidis/AI_Water_Sort.git
   ```
 * **To configure the project for the GCC compiler (supports only GCC ver.7 and above):**
-  1. Check the installed compiler's version; it must be $\geq$ 7.0.0
+  1. Check the installed compiler's version; it must be $\geq$ 7.0.0  
+
       ```
       g++ --version
       ```
-  2. Compile the project
+  2. Compile the project  
+
       ```
       g++ -std=c++17 -O3 src/main.cpp src/Bottle.cpp src/MemoryPool.cpp -Iinclude -o ai_water_sort
       ```
-  3. Launch project:
+  3. Launch project:  
+
       ```
       ./ai_water_sort
       ```
-* **To configure the project for Visual Studio (MSVC):**
-  1. Navigate to the `build` directory:
+* **To configure the project for Visual Studio (MSVC):**  
+
+  1. Navigate to the `build` directory:  
+
       ```
       cd ./build
       ```
-  2. Build with CMake:
+  2. Build with CMake:  
+
       ```
       cmake ..
       ```
   3. Open the main solution, `./build/ai_water_sort.sln`, using Visual Studio.
   4. Set the `ai_water_sort` project as main solution
   5. Run the program (Ctrl + F5)
-* **To change the number of bottles:**
-  1. Change the `BOTTLES_N` variable found at the top of the `main.cpp` file (defaults to 8)
+* **To change the number of bottles:**  
+
+  1. Change the `BOTTLES_N` variable found at the top of the `main.cpp` file (defaults to 8)  
+
       ```C++
       constexpr static size_t BOTTLES_N = static_cast<size_t>(8);
       ```
