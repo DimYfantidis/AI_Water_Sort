@@ -41,7 +41,7 @@ An implementation of the Breadth First Search algorithm for playing the "Water S
   git clone https://github.com/DimYfantidis/AI_Water_Sort.git
   ```
 * **To configure the project for the GCC compiler (supports only GCC ver.7 and above):**
-  1. Check the installed compiler's version; it must be $\geq$ 7.0.0  
+  1. Check the installed compiler's version; it must be $\geq$ 7.0.0.  
 
       ```
       g++ --version
@@ -69,8 +69,8 @@ An implementation of the Breadth First Search algorithm for playing the "Water S
       cmake ..
       ```
   3. Open the main solution, `./build/ai_water_sort.sln`, using Visual Studio.
-  4. Set the `ai_water_sort` project as main solution
-  5. Run the program (Ctrl + F5)
+  4. Set the `ai_water_sort` project as startup project.
+  5. Run the program (Ctrl + F5).
 * **To change the number of bottles:**  
 
   1. Change the `BOTTLES_N` variable found at the top of the `main.cpp` file (defaults to 8)  
