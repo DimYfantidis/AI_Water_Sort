@@ -27,8 +27,9 @@ An implementation of the Breadth First Search algorithm for playing the "Water S
 * A random initial state is created which is the root of the search space. Based on every possible allowed transition, a new child state is generated. Thus, the search space is represented as a tree.
 * The Breadth-First Search (BFS) algorithm was implemented for finding a sequence of transitions from the initial state to a victorious state (defined as described above). BFS is a blind search algorithm and has the following characteristics:
   - It is sound, complete and optimal
-  - Runtime complexity is $\mathcal{O}(b^d)$, where $b$ is the branching factor (average number of children of each state) and $d$ is the depth in which a victorious state is situated.
-  - Memory complexity is $\mathcal{O}(b^{d+1})$.
+  - Runtime complexity is $\mathcal{O}(b^{d+1})$, where $b$ is the branching factor (average number of children of each state) and $d$ is the depth in which a victorious state is situated
+  - (or max tree depth).
+  - Memory complexity is $\mathcal{O}(b^{d+2})$.
 * Implementation uses low-level representations of data and static values where possible. This ensures maximum state compression as to make the project's execution feasible, as with every added bottle the search space grows exponentially bigger.
 * Allowed number of bottles is $2 < N < 18$. However, it is still advised that $N \leq 10$ is used as $10 < N \leq 12$ is very demanding in memory and execution time, and $N > 12$ is practically unfeasible for any desktop computer.
 
